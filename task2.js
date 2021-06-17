@@ -1,34 +1,29 @@
 // Task №2
 
 let arr = [11, 5, 19, 0, 7, 88, 1, 3, 6, 8, 6, 0];
-let max = true;
+let descending = false;
 let notDubleEl = true;
 
 //  Функции сортировки массива по возрастанию и убыванию + удаление повторяющихся элементов в массиве
-function getSortArr(arr, max, notDubleEl) {
+function getSortArr(arr, descending, notDubleEl) {
     let newArr = [];
 
-    if (max) {
-        for (let i = 0; i < arr.length; i++) {
-            for (let k = i; k < arr.length; k++) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let k = i; k < arr.length; k++) {
+            if (descending) {
                 if (arr[i] < arr[k]) {
                     let swap = arr[i];
                     arr[i] = arr[k];
                     arr[k] = swap;
-                } 
-            }
-        }
-    } else if (!max) { //min
-        for (let i = arr.length - 1; i >= 0; i--) {
-            for (let k = i; k >= 0; k--) {
-                if (arr[i] < arr[k]) {
+                }
+            } else {
+                if (arr[i] > arr[k]) {
                     let swap = arr[i];
                     arr[i] = arr[k];
                     arr[k] = swap;
                 }
             }
         }
-
     }
 
     if (notDubleEl) {
@@ -66,6 +61,6 @@ function getMinElem(arr) {
     return minElem;
 }
 
-console.log(getSortArr(arr, max, notDubleEl));
+console.log(getSortArr(arr, descending, notDubleEl));
 console.log(getMaxElem(arr));
 console.log(getMinElem(arr));
