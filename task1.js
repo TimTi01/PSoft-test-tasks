@@ -1,22 +1,17 @@
 // Task №1
 
-let str = '';
-let num = 1;
-let arr = 1n;
-let obj = {};
-let bool = true;
-let undef;
-let nl = null;
-let sym = Symbol('s');
+let variable = '';
 
-function getType(str, num, arr, obj, bool, undef, nl, sym) {
-    let arrayValues = [str, num, arr, obj, bool, undef, nl, sym];
-    let arrType = [];
-
-    for (let v of arrayValues) {
-        arrType.push(typeof v);
-    } 
-    return arrType;
+function getType(variable) {
+    return (typeof variable);
 }
 
-console.log(getType(str, num, arr, obj, bool, undef, nl, sym));
+console.log(getType(variable));
+// ------------------------------------------
+
+// Пример работы функции
+let testArr = [1, '1', 1n, {'key':'value'}]
+
+for (const iterator of testArr) {
+    console.log(getType(iterator));
+}
